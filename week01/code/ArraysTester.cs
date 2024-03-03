@@ -35,11 +35,21 @@ public static class ArraysTester {
     private static double[] MultiplesOf(double number, int length)
     {
         // TODO Problem 1 Start
-        // Remember: Using comments in your program, write down your process for solving this problem
-        // step by step before you write the code. The plan should be clear enough that it could
-        // be implemented by another person.
+        //The function will start by creating a new list to store the the multiples of "number"
+        //A for loop starting at 1 will iterate through the size of "length + 1"
+        //On each iteration the for loop will times "number" times i(of the variable of the for loop) to calculate the
+        //multiples of "number". The multiple will then be added to the list created at step 1
+        //After the for loop has finished the function will return the list of multiples calculated by the for loop
 
-        return new double[0]; // replace this return statement with your own
+        List<double> multiples = new List<double> {}; 
+
+        for(int i = 1; i < length + 1; i++) {
+            double newMultiple = number * i;
+
+            multiples.Add(newMultiple);
+        } 
+
+        return multiples.ToArray(); // replace this return statement with your own
     }
     
     /// <summary>
@@ -53,9 +63,18 @@ public static class ArraysTester {
     private static void RotateListRight(List<int> data, int amount)
     {
         // TODO Problem 2 Start
-        // Remember: Using comments in your program, write down your process for solving this problem
-        // step by step before you write the code. The plan should be clear enough that it could
-        // be implemented by another person.
+        // The function compleates the desired result by compleating 3 steps "amount" times:
+        
+        // 1. Saving the last number to "swapNum"
+        // 2. Delete the last number form the list
+        // 3. Add the number saved to "swapNum" to the begining of the list
+        
+        for(int i = 0; i < amount; i++) {
+            int swapNum = data[data.Count() - 1];
 
+            data.RemoveAt(data.Count() - 1);
+
+            data.Insert(0, swapNum);
+        }
     }
 }
