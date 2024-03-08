@@ -11,9 +11,18 @@ public class CustomerService {
         // Test Cases
 
         // Test 1
-        // Scenario: 
+        // Scenario: first in first out
         // Expected Result: 
         Console.WriteLine("Test 1");
+        var cs = new CustomerService(10);
+        cs.AddNewCustomer();
+        cs.AddNewCustomer();
+        cs.AddNewCustomer();
+
+        for (int i = 0; i < 3; i++)
+        {
+            cs.ServeCustomer();
+        }
 
         // Defect(s) Found: 
 
@@ -23,6 +32,28 @@ public class CustomerService {
         // Scenario: 
         // Expected Result: 
         Console.WriteLine("Test 2");
+        cs = new CustomerService(0);
+        
+        for (int i = 0; i < 12; i++)
+        {
+            cs.AddNewCustomer();
+        }
+
+
+        // Defect(s) Found: 
+
+        Console.WriteLine("=================");
+
+
+
+        // Test 3
+        // Scenario: 
+        // Expected Result: 
+        Console.WriteLine("Test 3");
+        cs = new CustomerService(0);
+        
+        cs.ServeCustomer();
+
 
         // Defect(s) Found: 
 
@@ -30,6 +61,19 @@ public class CustomerService {
 
         // Add more Test Cases As Needed Below
     }
+
+
+
+// The user shall specify the maximum size of the Customer Service Queue when it is created. If the size is invalid (less than or equal to 0) then the size shall default to 10.
+
+// The AddNewCustomer method shall enqueue a new customer into the queue.
+
+// If the queue is full when trying to add a customer, then an error message will be displayed.
+
+// The ServeCustomer function shall dequeue the next customer from the queue and display the details.
+
+// If the queue is empty when trying to serve a customer, then an error message will be displayed.
+
 
     private readonly List<Customer> _queue = new();
     private readonly int _maxSize;
@@ -88,9 +132,9 @@ public class CustomerService {
     /// Dequeue the next customer and display the information.
     /// </summary>
     private void ServeCustomer() {
-        _queue.RemoveAt(0);
         var customer = _queue[0];
-        Console.WriteLine(customer);
+        Console.WriteLine(customer);        
+        _queue.RemoveAt(0);
     }
 
     /// <summary>
