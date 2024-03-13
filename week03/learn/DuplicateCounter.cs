@@ -24,7 +24,25 @@
 
     private static int CountDuplicates(int[] data)
     {
-        // Add code here.
-        return 0;
+        //HashSet List stores numbers that are the first of there kind
+        var numbers = new HashSet<int>();
+
+        //Dynamic array stores duplicate numbers
+        var duplicates = new List<int>();
+        
+        foreach(int num in data) {
+            //numbers.contains O(1) function
+            if(numbers.Contains(num)) {
+                //duplicates.add O(1) function
+                duplicates.Add(num);
+            }
+            else {
+                //numbers.add O(1) function
+                numbers.Add(num);
+            }
+        }
+
+        //duplicates.Count O(1) function
+        return duplicates.Count;
     }
 }
