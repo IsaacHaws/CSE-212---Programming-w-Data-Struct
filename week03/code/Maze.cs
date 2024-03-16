@@ -1,3 +1,5 @@
+using System.Security.Principal;
+
 /// <summary>
 /// Defines a maze using a dictionary. The dictionary is provided by the
 /// user when the Maze object is created. The dictionary will contain the
@@ -19,6 +21,11 @@ public class Maze {
     private int _currX = 1;
     private int _currY = 1;
 
+    private int LeftIndex = 0;
+    private int RightIndex = 1;
+    private int UpIndex = 2;
+    private int DownIndex = 3;
+
     public Maze(Dictionary<ValueTuple<int, int>, bool[]> mazeMap) {
         _mazeMap = mazeMap;
     }
@@ -29,7 +36,13 @@ public class Maze {
     /// can't move, then display "Can't go that way!"
     /// </summary>
     public void MoveLeft() {
-        // FILL IN CODE
+        var values = _mazeMap[(_currX, _currY)];
+        if(values[LeftIndex] == true) {
+            _currX--;
+        }
+        else {
+            Console.WriteLine("Can't go that way!");
+        }
     }
 
     /// <summary>
@@ -37,7 +50,13 @@ public class Maze {
     /// can't move, then display "Can't go that way!"
     /// </summary>
     public void MoveRight() {
-        // FILL IN CODE
+        var values = _mazeMap[(_currX, _currY)];
+        if(values[RightIndex] == true) {
+            _currX++;
+        }
+        else {
+            Console.WriteLine("Can't go that way!");
+        }
     }
 
     /// <summary>
@@ -45,7 +64,13 @@ public class Maze {
     /// can't move, then display "Can't go that way!"
     /// </summary>
     public void MoveUp() {
-        // FILL IN CODE
+        var values = _mazeMap[(_currX, _currY)];
+        if(values[UpIndex] == true) {
+            _currY--;
+        }
+        else {
+            Console.WriteLine("Can't go that way!");
+        }
     }
 
     /// <summary>
@@ -53,7 +78,13 @@ public class Maze {
     /// can't move, then display "Can't go that way!"
     /// </summary>
     public void MoveDown() {
-        // FILL IN CODE
+        var values = _mazeMap[(_currX, _currY)];
+        if(values[DownIndex] == true) {
+            _currY++;
+        }
+        else {
+            Console.WriteLine("Can't go that way!");
+        }
     }
 
     public void ShowStatus() {
