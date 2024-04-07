@@ -1,3 +1,5 @@
+using System.Formats.Asn1;
+
 public static class TreesTester {
     /// <summary>
     /// Entry point for the Prove 9 tests
@@ -25,6 +27,7 @@ public static class TreesTester {
         Console.WriteLine(tree.Contains(7)); // True
         Console.WriteLine(tree.Contains(6)); // True
         Console.WriteLine(tree.Contains(9)); // False
+        Console.WriteLine(tree.Contains(5)); // True
 
         Console.WriteLine("\n=========== PROBLEM 3 TESTS ===========");
         foreach (var value in tree.Reverse()) {
@@ -97,6 +100,23 @@ public static class TreesTester {
     /// <param name="last">the last index in the sortedNumbers to insert</param>
     /// <param name="bst">the BinarySearchTree in which to insert the values</param>
     private static void InsertMiddle(int[] sortedNumbers, int first, int last, BinarySearchTree bst) {
-        // TODO Start Problem 5
+    //     if(sortedNumbers.Length <= 0) {
+    //         return;
+    //     }
+    //     else {
+    //         int middleIndex = (first + last) / 2;
+
+    //         bst.Insert(sortedNumbers[middleIndex]);
+
+    //         if(0 + middleIndex > 0 && last != 1) {
+    //             //Recursive call for left side
+    //             InsertMiddle(sortedNumbers, 0, middleIndex - 1, bst);                
+    //         }
+
+    //         if(middleIndex + last > 0 && first != sortedNumbers.Length) {
+    //             //Recursive call for right side
+    //             InsertMiddle(sortedNumbers, middleIndex + 1, sortedNumbers.Length - 1, bst);
+    //         }            
+    //     }
     }
 }
