@@ -76,4 +76,26 @@ public class Node {
 
         }
     }
+
+    public bool IsValidTree() {
+        if(Left is not null) {
+            if(Left.Data >= Data) {
+                return false;
+            }
+            else {
+                return Left.IsValidTree();
+            }
+        }
+
+        if(Right is not null) {
+            if(Right.Data <= Data) {
+                return false;
+            }
+            else {
+                return Right.IsValidTree();
+            } 
+        }
+
+        return true;
+    }
 }

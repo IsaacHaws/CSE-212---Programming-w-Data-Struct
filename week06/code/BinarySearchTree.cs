@@ -84,4 +84,11 @@ public class BinarySearchTree : IEnumerable<int> {
     public override string ToString() {
         return "<Bst>{" + string.Join(", ", this) + "}";
     }
+
+    public bool IsValidTree() {
+        if(_root is null) {
+            return false;
+        }
+        return _root.IsValidTree();
+    }
 }

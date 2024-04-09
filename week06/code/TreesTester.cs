@@ -21,6 +21,8 @@ public static class TreesTester {
         tree.Insert(6);
         Console.WriteLine(tree.ToString()); // 1, 3, 4, 5, 6, 7, 10
 
+        Console.WriteLine(tree.IsValidTree());
+
         Console.WriteLine("\n=========== PROBLEM 2 TESTS ===========");
         Console.WriteLine(tree.Contains(3)); // True
         Console.WriteLine(tree.Contains(2)); // False
